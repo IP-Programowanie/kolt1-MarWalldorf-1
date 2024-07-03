@@ -123,7 +123,7 @@ int main()
     Samochod samochod1;
     SamochodElektryczny samochodElektryczny1;
     double wartoscSamochod1 = samochod1.obliczWartosc(10000, 1.0);
-    double wartoscSamochodElektryczny1 = samochodElektryczny1.obliczWartosc(10000, 1.0);
+    double wartoscSamochodElektryczny1 = samochodElektryczny1.obliczWartosc(10000, 0.7);
     cout << "Wartosc Samochod1: " << wartoscSamochod1 << endl;
     cout << "Wartosc SamochodElektryczny1: " << wartoscSamochodElektryczny1 << endl;
     try {
