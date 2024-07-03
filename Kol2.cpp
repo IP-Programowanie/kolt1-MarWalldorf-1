@@ -22,6 +22,7 @@ protected:
     bool stanDopuszczenia;
     Wlasciciel wlasciciel;
     static Samochod* wzorcowySamochod;
+    static constexpr double MIN_WARTOSC = 400;
 public:
     Samochod(const char* numerRejestracyjny, double stanLicznika, bool stanDopuszczenia, const Wlasciciel& wlasciciel)
         : stanLicznika(stanLicznika), stanDopuszczenia(stanDopuszczenia), wlasciciel(wlasciciel)
@@ -54,7 +55,15 @@ public:
     }
     virtual double obliczWartosc(double WAR_POC, double WSP_SPRAW) const
     {
-        return (WAR_POC - 0.2 * stanLicznika) * WSP_SPRAW;
+        double wartosc = (WAR_POC - 0.2 * stanLicznika)* WSP_SPRAW;
+        if (wartosc<400)
+        {
+            throw runtime_error("Wartosc nie moze byc mniejsza niz 400");
+        }
+        else
+        {
+            return (WAR_POC - 0.2 * stanLicznika) * WSP_SPRAW;
+        }
     }
     virtual double obliczZasieg() const
     {
